@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 1</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>4. Create a composition with three ellipses to create an illusion of depth in the display
+        window. Think about size, drawing order, and transparency.</h2>
+
+    
+    <script>
+        function setup() {
+            createCanvas(400, 400);
+        }
+
+        function draw() {
+            noStroke();
+            background(0);
+
+            fill(255, 50); // High opacity
+
+            
+            ellipse(height/2, width/2, 300, 300); // Back
+
+            ellipse(height/2, width/2, 225, 225); 
+
+            ellipse(height/2, width/2, 150, 150);  // Top
+            }
+    </script>
+
+<h2> 5. Create a visual knot using only Bézier curves.</h2>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
