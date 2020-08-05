@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 1 Exercise 5</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>5. Create a visual knot using only Bézier curves.</h2>
+
+    
+    <script>
+        function setup() {
+            createCanvas(400, 400);
+            background(0);
+        }
+
+        function draw() {
+            stroke('white');
+            strokeWeight(6); // Thicc line stroke 
+
+            //Loops
+            beginShape();
+            noFill();
+            bezier(50, 50, 0, 200, 300, 80, 50, 50);
+            bezier(225, 50, 50, 50, 200, 200, 225, 50);
+            endShape();
+
+            //Lines
+            beginShape();
+            bezier(150, 100, 150, 200, 100, 200, 50, 200);
+            bezier(150, 100, 130, 200, 300, 200, 300, 200);
+            endShape();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

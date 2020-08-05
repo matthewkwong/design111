@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Project 1 Sketch 4</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>    
+    <script>
+        function setup() {
+            createCanvas(500, 500);
+            background('#5DB6D4');
+        }
+
+        function draw() {
+            fill('#EE1860');
+            
+            //border
+            rect(0, 0, 500, 50);
+            rect(0, 450, 500, 50);
+            rect(0, 0, 50, 500);
+            rect(450, 0, 50, 500);
+
+
+            noStroke();
+            //two horizontal rectangles 
+            rect(50, 100, 400, 100);
+            rect(50, 300, 400, 100);
+
+
+            // 3 columns
+            rect(50, 50, 100, 400);
+            rect(200, 50, 100, 400);
+            rect(350, 50, 100, 400);
+
+            // X Lines
+            stroke('#5DB6D4');
+            strokeWeight(20); 
+
+            line(50, 50, 450, 450);
+            line(450, 50, 50, 450);
+            
+            // + Lines from center
+            line(250, 0, 250, 500);
+            line(0, 250,  500, 250);
+
+            // Vertical lines down the middle of column 1 and 3
+            line(100, 0, 100, 500);
+            line(400, 0, 400, 500);
+
+            // Horizontal lines across every 50 px
+            for(var i = 0; i < 500; i = i+50) {
+                line(0, i, 500, i);
+            };
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

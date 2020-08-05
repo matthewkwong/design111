@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Project 1 Sketch 8</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>    
+    <script>
+        function setup() {
+            createCanvas(500, 500);
+        }
+
+        function draw() {
+
+
+            // Middle  Diamond
+            fill('black');
+            beginShape();
+            vertex(250, 125);
+            vertex(375, 250);
+            vertex(250, 375);
+            vertex(125,250);
+            endShape();
+
+            // left triangle
+            fill('black');
+            beginShape();
+            vertex(0, 125);
+            vertex(125, 250);
+            vertex(0,375);
+            endShape();
+        
+            // right triangle
+            beginShape();
+            vertex(500, 125);
+            vertex(375, 250);
+            vertex(500, 375);
+            endShape();
+
+            // Top triangle
+            beginShape();
+            vertex(125, 0 );
+            vertex(250, 125);
+            vertex(375, 0);
+            endShape();
+
+            // Bottom triangle
+            beginShape();
+            vertex(125, 500);
+            vertex(250, 375);
+            vertex(375, 500);
+            endShape();
+            
+
+
+            strokeWeight(3);
+            stroke('black');
+
+            // Border
+            line(500,0, 500,500);
+            line(0,500,500,500)
+
+
+            // X lines
+            line(0, 500, 500, 0); 
+            line(0, 0, 500, 500); 
+
+            // lines going top left to bottom right
+            for(var i = 125; i < 1000; i = i+125) {
+                line(i, 0, 0, i);
+            };
+
+            // lines going bottom left to top right
+            line(0, 375, 125, 500); 
+            line(0, 250, 250, 500); 
+            line(250, 0, 500, 250); 
+            line(375, 0, 500, 125); 
+            
+
+            // Horizontal lines across every 125 px
+            for(var i = 0; i < 500; i = i+125) {
+                line(0, i, 500, i);
+            };
+
+            // Vertical lines across every 125 px
+            for(var i = 0; i < 500; i = i+125) {
+                line(i, 0, i, 500);
+            };
+
+            stroke('white');
+            line(250, 0, 250, 500);
+            line(0,250, 500, 250);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
