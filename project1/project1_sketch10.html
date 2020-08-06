@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Project 1 Sketch 10</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>    
+    <script>
+        function setup() {
+            createCanvas(500, 500);
+        }
+
+        function draw() {
+            noStroke();
+
+            //Moon Sun
+            fill('#FE5F55');
+            ellipse(100, 100, 100, 100);
+                   
+            // Mountains
+            beginShape();
+            fill('#E8D7F1');
+            vertex(0, 500);
+            vertex(150, 175);
+            vertex(250, 350);
+            vertex(375, 0);
+            vertex(500, 300);
+            vertex(500, 500);
+            endShape();
+
+            // Snowcap 1
+            beginShape();
+            fill('#FE5F55');
+            vertex(104, 275);
+            vertex(150, 175);
+            vertex(207, 275);
+
+            vertex(180, 300);
+            vertex(150, 275);
+            vertex(125, 300);            
+            endShape();
+
+
+            // Snowcap 2
+            beginShape();
+            fill('#FE5F55');
+            vertex(330, 125);
+            vertex(375, 0);
+            vertex(426, 125);
+
+            vertex(400, 150);
+            vertex(375, 125);
+            vertex(350, 150);
+            
+            endShape();
+
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
