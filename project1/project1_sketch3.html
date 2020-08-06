@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Project 1 Sketch 3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>    
+    <script>
+        function setup() {
+            createCanvas(500, 500);
+            background('black');
+        }
+
+        function draw() {
+            
+            // Outline of full circle
+            fill('black');
+            ellipse(250, 250, 250, 250);
+
+            fill('white');
+
+            // outer filled arc
+            arc(height/2, width/2, 250, 250,  radians(0), radians(270), PIE);
+        
+            // inner
+            fill('black');
+            ellipse(250, 250, 150, 150);
+            
+            fill('white');
+            arc(height/2, width/2, 150, 150,  radians(270), radians(0), PIE);
+
+
+            // Lines
+            stroke('white');
+            strokeWeight(3);
+            line(125, 0, 125, 250);
+            line(250, 0, 250, 250);
+            line(250, 250, 500, 250);
+            line(250, 375, 500, 375);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

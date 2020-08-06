@@ -23,25 +23,31 @@
             ellipse(height/2, width/2, 400, 400); 
 
 
-
+            // TOP
             fill('black');
+            // top left
             arc(height/2, width/2, 400, 400,  radians(90), radians(180), PIE);
+            // top right
             arc(height/2, width/2, 400, 400,  radians(270), radians(0), PIE);
            
             fill(unfilled);
             ellipse(height/2, width/2, 275, 275); 
 
-
+            // MIDDLE
             fill('black');
+            // top left
             arc(height/2, width/2, 275, 275,  radians(180), radians(270), PIE);
+            // bottom right
             arc(height/2, width/2, 275, 275,  radians(0), radians(90), PIE);
 
-
+            // CENTER 
             fill(unfilled);
             ellipse(height/2, width/2, 150, 150); 
 
             fill('black');
+            // Top Right
             arc(height/2, width/2, 150, 150,  radians(270), radians(0), PIE);
+            // Bottom Left
             arc(height/2, width/2, 150, 150,  radians(90), radians(180), PIE);
         }
     </script>
