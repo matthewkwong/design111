@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Project 1 #2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>    
+    <script>
+        function setup() {
+            createCanvas(500, 500);
+            background('#5DB6D4');
+        }
+
+        function draw() {
+            strokeWeight(10); 
+            stroke('white');
+
+            // lines going top left to bottom right
+            for(var i = 0; i < 1000; i = i+75) {
+                line(i, 0, 0, i);
+            };  
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
