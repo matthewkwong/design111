@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design 111 Project 1 #2</title>
+    <title>Design 111 Homework 2 Chapter 4 #3</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -11,22 +11,27 @@
     <script>
         function setup() {
             createCanvas(500, 500);
-            background('#5DB6D4');
         }
 
         function draw() {
-            strokeWeight(10); 
-            stroke('white');
+            background(0);
+            blendMode(LIGHTEST);
+            noStroke();
+            
+            
+            fill(255, 0, 0); 
+            ellipse(47, 36, 64, 64);
+            
+            fill(174, 221, 60, 160); 
+            ellipse(90, 47, 64, 64);
 
-            // lines going top left to bottom right
-            for(var i = 0; i < 1000; i = i+75) {
-                line(i, 0, 0, i);
-            };  
+            fill(116, 193, 206, 160); 
+            ellipse(57, 79, 64, 64);
         }
 
         function keyPressed(){
             if(keyCode == ENTER){
-                save("p1_02.tif");
+                save("hw2_ch4_ex3_part1.tif");
             }
         }
     </script>
