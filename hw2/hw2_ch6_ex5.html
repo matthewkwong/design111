@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 2 Chapter 6 Exercise 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>    
+    <script>
+// 5. Create a composition with a series of lines and rectangles inside draw(). Use an if
+// structure to select which lines of code run and which are skipped at each frame.
+        function setup() {
+            createCanvas(500, 500);
+        }
+        
+        let x = 0.0;
+        function draw() {
+            background(0);
+            strokeWeight(4);
+            line(x, 0, x, height); 
+            
+            
+            // Control the speed
+            x = x + 1;
+            
+            
+            if(x <= 125){
+                rect(125, 125, 20, 200);
+                stroke('white');
+                fill('white');
+            }
+            else if(x >= 125 && x < 250) {
+                rect(250, 125, 20, 200);
+                stroke('#48e7ef');
+                fill('#48e7ef');
+            }
+            else if(x >= 250 && x < 375){
+                stroke('orange');
+                fill('orange')
+                rect(375, 125, 20, 200);
+            }
+            else if(x >= 375 && x < 500){
+                rect(125, 125, 20, 200);
+                stroke('white');
+                fill('white');            
+            }
+            else{
+                x = 0;
+            }
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

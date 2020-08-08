@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 2 Chapter 5 Exercise 5</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>    
+    <script>
+        //5. Use multiplication to create a series of lines with increasing space between each.
+        
+        function setup() {
+            createCanvas(500, 500);
+            background('#71b0c0');
+        }
+
+        function draw() {
+            stroke('#ededad');
+            strokeWeight(5);
+
+            let y = 20;
+            
+            line(0, y, width, y);
+            
+            y = y * 2; 
+            line(0, y, width, y);
+            
+            y = y * 2; 
+            line(0, y, width, y);
+            
+            y = y * 2; 
+            line(0, y, width, y);
+            
+            y = y * 2; 
+            line(0, y, width, y);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

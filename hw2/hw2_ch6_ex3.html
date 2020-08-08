@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design 111 Homework 2 Chapter 5 Exercise 4</title>
+    <title>Design 111 Homework 2 Chapter 6 Exercise 2</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>    
     <script>
-        //4. Use one variable to set the position and size for three ellipses.
-
+        // 3. Utilize noLoop() to make a program run its draw() only one time.
+        
         function setup() {
             createCanvas(500, 500);
         }
-
+        
+        let x = 0.0;
         function draw() {
-            let x = 100;
-
-            fill('black');
-            ellipse(x * 2, x * 2, x * 3, x *3);
-
-            fill('red');
-            ellipse(x * 4, x * 4, x * 3, x *3);
-
-            fill('orange');
-            ellipse(x * 3, x * 3, x * 2, x *2);
+            background(0);
+            strokeWeight(4);
+            stroke('#48e7ef'); 
+            line(x, 0, x, height); 
+            x = x + 01;
+            
+            if(x == 500){
+                noLoop();
+            }
         }
+
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
