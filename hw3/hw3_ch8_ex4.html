@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 3 Chapter 8 Exercise 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>    
+    <script>
+        //4. Place a conditional (if) inside a for loop to change what it draws during the loop.
+        // For example, half of the lines are short and the other half are long
+        
+        function setup() {
+            createCanvas(400, 400);
+        }
+        
+        function draw() {
+            background("red");
+            strokeWeight(4);
+            
+            stroke('white');
+
+            for(let i=40; i < 400 ; i+=80){
+                if(i > 150){
+                    stroke('black');
+                    line(0, i, width/2, i);
+                }
+                else{
+                    line(0, i, width, i);
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 3 Chapter 8 Exercise 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>    
+    <script>
+        // 2. Select one of the patterns from exercise 1 and code it with a while loop.
+        function setup() {
+            createCanvas(400, 400);
+        }
+        
+        function draw() {
+            background("red");
+            strokeWeight(4);
+            
+            stroke('white');
+
+            let i = 40;
+            while(i < 400){
+                line(0, i, width, i);
+                i += 80;
+            }
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

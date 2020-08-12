@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 3 Chapter 8 Exercise 2</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>    
+    <script>
+        // 5. Draw a dense pattern by nesting two for loops.
+
+        
+        function setup() {
+            createCanvas(400, 400);
+        }
+        
+        function draw() {
+            background("black");
+            strokeWeight(4);
+            
+            stroke('white');
+
+            for (let y = 20; y < 400; y += 30) {
+                for (let x = 20; x < 400; x += 30) {
+                    if(x > 200){
+                        line(x+10, y, x+10, y+10);
+                    }
+                    else{
+                        line(x, y, x+5, y+5);
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
