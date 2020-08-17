@@ -3,65 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design 111 Project 1 #7</title>
+    <title>Design 111 Project 2 #1</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>    
     <script>
+        
+        var x = 0;
+
         function setup() {
             createCanvas(500, 500);
         }
 
         function draw() {
-            const color1 = '#CAF0F8';
-            const color2 = '#90E0EF'; 
+            let color1 = '#CAF0F8';
+            let color2 = '#90E0EF'; 
 
+
+            
             fill('white');
             rect(0, 0, 500, 500);
-
 
             stroke('white');
             strokeWeight(3);
 
+            translate(width / 2, height / 2);
+            rotate(a);
+            
             // TOP
             fill(color1);
-            ellipse(height/2, width/2, 400, 400); 
+            ellipse(0, 0, 400, 400); 
 
 
             fill(color2);
             // top left
-            arc(height/2, width/2, 400, 400,  radians(90), radians(180), PIE);
+            arc(0, 0, 400, 400,  radians(90), radians(180), PIE);
             // top right
-            arc(height/2, width/2, 400, 400,  radians(270), radians(0), PIE);
+            arc(0, 0, 400, 400,  radians(270), radians(0), PIE);
            
 
            
             // MIDDLE
             fill(color1);
-            ellipse(height/2, width/2, 275, 275); 
+            ellipse(0, 0, 275, 275); 
 
 
             fill(color2);
             // top left
-            arc(height/2, width/2, 275, 275,  radians(180), radians(270), PIE);
+            arc(0, 0, 275, 275,  radians(180), radians(270), PIE);
             // bottom right
-            arc(height/2, width/2, 275, 275,  radians(0), radians(90), PIE);
+            arc(0, 0, 275, 275,  radians(0), radians(90), PIE);
 
             // CENTER 
             fill(color1);
-            ellipse(height/2, width/2, 150, 150); 
+            ellipse(0, 0, 150, 150); 
 
             fill(color2);
             // Top Right
-            arc(height/2, width/2, 150, 150,  radians(270), radians(0), PIE);
+            arc(0, 0, 150, 150,  radians(270), radians(0), PIE);
             // Bottom Left
-            arc(height/2, width/2, 150, 150,  radians(90), radians(180), PIE);
-        }
+            arc(0, 0, 150, 150,  radians(90), radians(180), PIE);
+
+            x = x + 0.01;
+        }       
   
         function keyPressed(){
             if(keyCode == ENTER){
-                save("p1_07.tif");
+                save("p2_01.tif");
             }
         }
   </script>

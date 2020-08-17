@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design 111 Project 1 #10</title>
+    <title>Design 111 Project 2 #2</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>    
     <script>
         let x = 0;
+        let y = 0;
 
         function setup() {
             createCanvas(500, 500);
@@ -19,18 +20,29 @@
         function draw() {
             strokeWeight(10); 
             stroke('white');
+            noFill();
 
-            // lines going top left to bottom right
-            for(var i = 0; i < 1000; i = i+75) {
-                line(i, 0, i, x);
-            };  
-            x = x+1;
+            x = x + 1;
 
+            if(x > 200  && x < 350){
+                strokeWeight(0.3);
+                ellipse(250, 250, x);
+                ellipse(0, 0, x);
+                ellipse(0, 500, x);
+                ellipse(500, 0, x);
+                ellipse(500, 500, x);
+
+            }
+
+            if(x <= 125 ){
+                strokeWeight(2);
+                ellipse(250, 250, x);
+            }
         }    
         
         function keyPressed(){
             if(keyCode == ENTER){
-                save("p2_1.tif");
+                save("p2_02.tif");
             }
         }
     </script>
