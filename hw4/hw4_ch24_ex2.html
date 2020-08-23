@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 4 Chapter 24 Exercise 1</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+        function setup() {
+            createCanvas(300, 300);
+            strokeWeight(3);
+            background('black');
+        }
+
+        function redCircle(x, y, z){
+            fill( x, y, z);
+            ellipse(x, y, 100, 100);
+        }
+
+        function draw() {
+            redCircle(0, 0, 150);
+            redCircle(100, 100, 200);
+            redCircle(200, 200, 20);
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
