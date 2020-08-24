@@ -12,50 +12,40 @@
             strokeWeight(3);
         }
 
-        let offset = 0;
 
         function draw() {
+            fill('white');
+            noStroke();
+            rect(0,0, 800,800);
 
-
+            stroke('black');
             for(let j = 0; j < 10; j++){
                 for(let i = 0; i < 10; i++){
-        
                     // check even or odd number
                     if((j%2) == 0){
-                        fill('#FF7370');
-                        stroke('#FF3C38');
-                        
-
+                        // if i+j is even
                         let x = i * 200 + 40;
                         let y = j * 100 + 40;
-                        rect(x-offset, y+offset, 100, 100);
+                        rect(x, y, 100, 100);
+                        line(x, y, x + 50, y - 50);
+                        line(x+100, y, x+150, y-50);
                     } 
-                    
-                    else{                       
-                        fill('#9FFFF5');
-                        stroke('#00F5DC');
-
+                    else{
                         // if i + j is odd
                         let x = i * 200 + 40;
                         let y = j * 100 + 40;
-                        rect(x+offset, y+offset, 100, 100);
+                        rect(x+50, y-50, 100, 100);
+                        line(x, y, x + 50, y - 50); 
                     }
-                
                 }
-            }        
-
-            offset += 0.5;
-            if (offset == 100) {
-                offset = 0;
             }
         }
 
         function keyPressed(){
             if(keyCode == ENTER){
-                save("p3_03.jpg");
+                save("p3_02.jpg");
             }
         }
-
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>

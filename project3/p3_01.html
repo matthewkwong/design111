@@ -10,40 +10,56 @@
         function setup() {
             createCanvas(800, 800);
             strokeWeight(3);
-            // background('red');
-            stroke('black');
+            noStroke();
+            background('#62B6CB');
         }
+        
+        const color1 = "#087F8C";
+        const color2 = "white";
+
 
 
         function draw() {
-
+            fill('white');
+            rect(0,0, 800,800);
+            
             for(let j = 0; j < 10; j++){
                 for(let i = 0; i < 10; i++){
                     // check even or odd number
                     if((j%2) == 0){
-                        // fill('white');
-                        // stroke('black');
                         // if i+j is even
-                        let x = i * 200 + 40;
-                        let y = j * 100 + 40;
-                        rect(x, y, 100, 100);
-                        line(x, y, x + 50, y - 50);
-                        line(x+100, y, x+150, y-50);
+                        let x = i * 120 + 40;
+                        let y = j * 80 + 40;
+
+                        fill(color1)
+                        ellipse(x, y, 80, 80);
+                        fill(color2);
+                        ellipse(x, y, 60, 60);
+                        fill(color1);
+                        ellipse(x, y, 40, 40);
+                        fill(color2);
+                        ellipse(x, y, 20, 20);
+
                     } 
                     else{
-                        // fill('orange');
-                        // stroke("orange");
-                        // if i + j is odd
-                        let x = i * 200 + 40;
-                        let y = j * 100 + 40;
-                        rect(x+50, y-50, 100, 100);
-                        line(x, y, x + 50, y - 50);
-                        // line(x+100, y, x+150, y-50);                    
+                        let x = i * 120 + 100;
+                        let y = j * 80 + 40;
+                        fill(color1);
+                        ellipse(x, y, 100, 100);
+                        fill(color2)
+                        ellipse(x, y, 75, 75);
+                        fill(color1);
+                        ellipse(x, y, 50, 50);
+                        fill(color2);
+                        ellipse(x, y, 25, 25);
                     }
-
-                    // Spacing between the center of two adjacent squares is 80
-                    // initial value of x is 40
                 }
+            }
+        }
+
+        function keyPressed(){
+            if(keyCode == ENTER){
+                save("p3_01.jpg");
             }
         }
 
