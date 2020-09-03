@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 5 Chapter 25 Exercise 1</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+
+    let sp; // Declare the object
+
+    function setup() {
+        createCanvas(100, 100);
+        noStroke();
+        sp = new Spot(33, 50, 30, 5); // Construct the object
+    }
+    function draw() {
+        fill("black");
+        rect(0, 0, width, height);
+
+        fill("white");
+        sp.move();
+        sp.display();
+    }
+
+    class Spot {
+        constructor(){
+            this.x
+            this.y; // X-coordinate, y-coordinate
+            this.diameter; // Diameter of the circle
+            this.speed; // Distance moved each frame
+            this.direction = 1; // Direction of motion (1 is down, -1 is up)
+            // Constructor
+        }
+
+        Spot(xpos,  ypos,  dia,  sp) {
+            this.x = xpos;
+            this.y = ypos;
+            this.diameter = dia;
+            this.speed = sp;
+        }
+    
+        move() {
+            this.y += (this.speed * this.direction);
+            if ((this.y > (this.height - this.diameter/2)) || (this.y < this.diameter/2)) {
+                this.direction *= -1;
+            }
+        }
+
+        display() {
+            ellipse(this.x, this.y, this.diameter, this.diameter);
+        }
+    }
+    
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

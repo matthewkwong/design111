@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Project 4 #3</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+        var startTime;
+    
+        function setup() {
+            createCanvas(800, 800);
+            strokeWeight(3);
+            startTime = millis();
+        }
+
+        let offset = 0;
+
+        let color1 = "#ffe944";
+        let stroke1 = "#f9d800";
+
+        let color2 = "#00F5DC";
+        let stroke2 = "#3af290";
+
+
+        function draw() {
+            for(let j = 0; j < 10; j++){
+                for(let i = 0; i < 10; i++){
+                    // check even or odd number
+                    if((j%2) == 0){
+                        fill(color1);
+                        stroke(stroke1);
+                        
+
+                        let x = i * 200 + 40;
+                        let y = j * 100 + 40;
+                        rect(x-offset, y+offset, 100, 100);
+                    } 
+                    
+                    else{                       
+                        fill(color2);
+                        stroke(stroke2);
+
+                        // if i + j is odd
+                        let x = i * 200 + 40;
+                        let y = j * 100 + 40;
+                        rect(x+offset, y+offset, 100, 100);
+                    }
+                
+                }
+            }        
+            
+            function switch1(){
+                color1 = "#FF7370";
+                stroke1 = "#FF3C38";
+                
+                color2 = "#9FFFF5";
+                stroke2 = "#00F5DC";
+            }
+
+            function switch2(){
+                color1 = "#ffe944";
+                stroke1 = "#f9d800";
+
+                color2 = "#00F5DC";
+                stroke2 = "#3af290";
+            }
+
+
+            let elapsedTime = millis() - startTime;
+            
+            if (elapsedTime < 20000){
+               
+                offset += 0.5;
+                if (offset == 100) {
+                    offset = 0;
+                }
+
+                if(elapsedTime < 5000){
+                    switch1();
+                }
+                else if(elapsedTime < 10000){
+                    switch2();
+                }
+
+                else if(elapsedTime < 15000){
+                    switch1();
+                }
+
+                else if(elapsedTime < 20000){
+                    switch2();
+                }
+                console.log(elapsedTime);
+            }
+        }
+
+        function keyPressed(){
+            if(keyCode == ENTER){
+                save("p4_03.jpg");
+            }
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
