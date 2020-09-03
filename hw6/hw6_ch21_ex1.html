@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 6 Chapter 21 Exercise 1</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+        function setup() {
+            createCanvas(700, 700);
+            noStroke();
+            background("black");
+        }
+
+
+        function randomCircle() {
+            let x = random(100, 600);
+            let y = random(200, 600);
+            let size = random(50, 200);
+            ellipse(x, y, size);
+        }
+
+        function draw() {
+            fill("white");
+            randomCircle();
+
+            fill("#a0a0a0"); 
+            randomCircle(); 
+
+            fill("#d3d3d3");
+            randomCircle(); 
+            noLoop();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
