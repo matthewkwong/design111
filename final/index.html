@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Final Project</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+
+        var colorSet1 =
+        ['#E8E8E8', '#C4C4C4', '#A5A3A3', '#5A5A5A'];
+
+        function setup() {
+            createCanvas(1200, 900);
+            // noStroke();
+            stroke("white");
+            noFill();
+            background("black");
+        }
+
+
+
+        function randomRect1() {
+            let x = random(50, 600);
+            let y = random(100, 600);
+            let width = random(100, 500);
+            let height = random(100, 500);
+
+            let distance = int(dist(x, y, x + 100, y + 100));
+
+            // let distanceX = 300;
+            // let distanceY = 300;
+            let counter = 0;
+
+
+            // rect(x, y, width, height);
+
+            if(counter === 0){
+                rect(x, y, width, height);
+                counter += 1;
+                
+            }
+            else{
+                rect((x + distance), (y + distance), width, height);
+            }
+        }
+
+        // function randomRect2() {
+        //     let x = random(50, 700);
+        //     let y = random(50, 00);
+        //     let width = random(400, 700);
+        //     let height = random(100, 300);
+        //     rect(x, y, width, height);
+        // }
+
+        // function randomRect3() {
+        //     let x = random(50, 700);
+        //     let y = random(50, 500);
+        //     let width = random(100, 500);
+        //     let height = random(100, 400);
+        //     rect(x, y, width, height);
+        // }
+        
+        function randomCircle() {
+            let x = random(300, 700);
+            let y = random(300, 700);
+            let size = random(50, 300);
+            ellipse(x, y, size);
+        }
+
+        function draw() {
+
+            // lightest
+            for( let i = 0;  i < 3; i++){
+                fill(colorSet1[0]); 
+                randomRect1();
+
+                fill(colorSet1[3]); 
+                randomRect1();  
+            }
+
+            fill(colorSet1[0]);
+            randomRect1(); 
+            
+            for( let i = 0;  i < 3; i++){
+                fill(colorSet1[2]);
+                randomRect1(); 
+ 
+                fill(colorSet1[int(random(0, colorSet1.length))]);
+                randomCircle();
+            }
+
+
+            // use random and have a range so they cant get
+            // closer than a certain distance they can go. 
+            // distance variable that add or subtract the 
+            // distance from the x and y of 
+            
+            noLoop();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>
