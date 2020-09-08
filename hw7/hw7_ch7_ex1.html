@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Homework 7 Chapter 7 Exercise 1</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+
+    // 1. Control the position of a shape with mouseX and mouseY. 
+    // Strive to create a more interesting relation than one directly 
+    // mimicking the position of the cursor.
+        function setup() {
+            createCanvas(700, 700);
+            background("black");
+        }
+
+        function draw() {
+            if (mouseY < 150 ) {
+                fill("red");
+                ellipse(250, 250, 100, 100); 
+            } else if (mouseY < 350) {
+                fill("orange");
+                ellipse(350, 350, 100, 100); 
+            } else {
+                fill("yellow");
+                ellipse(450, 450, 100, 100); 
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

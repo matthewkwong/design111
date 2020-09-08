@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 111 Extra Credit Chapter 12 Exercise 2</title>
+    <link rel="stylesheet" href="../styles.css"></head>
+<body>
+    <script> 
+
+        // loadFont(serif);
+        let letter = 'A';
+        let x = 10
+        let y = 30;
+
+        function setup() {
+            createCanvas(300, 300);
+            // serif = createFont("serif", 12);
+            textFont('Helvetica');
+            fill(0);
+        }
+
+        function draw() {
+            noLoop();
+            for(let i = 0; i < 26; i++) {
+                text(letter, x, y);
+                letter++;
+        
+                if(x > 250) {
+                    y += 50;
+                    x = 10;
+                } 
+                else {
+                    x += 20;
+                }
+            }
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+</body>
+</html>

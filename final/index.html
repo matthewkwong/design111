@@ -15,35 +15,74 @@
             createCanvas(1200, 900);
             // noStroke();
             stroke("white");
-            noFill();
             background("black");
         }
 
 
+        let counter = 0;
 
+
+        var xCoords = [];
+        var yCoords = [];
+
+        let distance = 0;
+
+        function compare(x, y, width, height){
+            // rectMode(CENTER);
+        let numOfLoops = 0;
+            for(let i = 0; i < xCoords.length; i++) {
+                console.log(xCoords[i]);
+              
+                distance = int(dist(xCoords[i], yCoords[i], 
+                xCoords[i+1], yCoords[i+1]));
+
+                console.log("distance:", distance);
+              
+                if(distance > 300){
+                    // fill(colorSet1[3]);                    // width = 10;
+                    rect(x, y, width, height);
+                    // return;
+                }
+
+                numOfLoops++;
+                console.log(numOfLoops);
+            }
+        }
+
+        // create array of values for x and y of shapes
+        // through array make function that looops through array and
+        // repopulates new x and y positions for shapes.
+
+        // array of all rectangle positions
         function randomRect1() {
+            // create bounds             
             let x = random(50, 600);
             let y = random(100, 600);
+
             let width = random(100, 500);
             let height = random(100, 500);
+            
+            xCoords.push(x);
+            yCoords.push(y);
 
-            let distance = int(dist(x, y, x + 100, y + 100));
 
             // let distanceX = 300;
             // let distanceY = 300;
-            let counter = 0;
-
 
             // rect(x, y, width, height);
 
             if(counter === 0){
+                // fill("green");
                 rect(x, y, width, height);
                 counter += 1;
-                
             }
             else{
-                rect((x + distance), (y + distance), width, height);
+                compare(x, y, width, height);
+                // console.log(counter);
+                // rect((x + distance), (y + distance), width, height);
             }
+            console.log("x coordinates array", xCoords);
+            console.log("y coordinates array", yCoords);
         }
 
         // function randomRect2() {
@@ -71,25 +110,23 @@
 
         function draw() {
 
-            // lightest
-            for( let i = 0;  i < 3; i++){
-                fill(colorSet1[0]); 
-                randomRect1();
-
-                fill(colorSet1[3]); 
-                randomRect1();  
-            }
-
-            fill(colorSet1[0]);
-            randomRect1(); 
-            
-            for( let i = 0;  i < 3; i++){
-                fill(colorSet1[2]);
-                randomRect1(); 
- 
+            for( let i = 0;  i < 5; i++){
                 fill(colorSet1[int(random(0, colorSet1.length))]);
-                randomCircle();
+                randomRect1();
             }
+
+            // fill(colorSet1[0]);
+            // randomRect1(); 
+            
+            // for( let i = 0;  i < 3; i++){
+            //     fill(colorSet1[2]);
+            //     randomRect1(); 
+            // }
+
+            // for( let i = 0;  i < 3; i++){
+            //     fill(colorSet1[int(random(0, colorSet1.length))]);
+            //     randomCircle();
+            // }
 
 
             // use random and have a range so they cant get
