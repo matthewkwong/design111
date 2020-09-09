@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="../styles.css"></head>
 <body>
     <script> 
+        var value = 0;
+        console.log(value);
 
         var colorSet1 =
         ['#E8E8E8', '#C4C4C4', '#A5A3A3', '#5A5A5A'];
+
+
+        var colorSet2 =
+        ['#6EB4F4', '#F8D24B', '#458277', '#FF9371'];
+
+
+        var colorSet3 =
+        ['#FF3D3D', '#FFE175', '#7FE2F8', '#7FD06B'];
 
         function setup() {
             createCanvas(1200, 900);
@@ -27,25 +37,31 @@
 
         let distance = 0;
 
-        function compare(x, y, width, height){
+        function compareRect(x, y, width, height){
             // rectMode(CENTER);
         let numOfLoops = 0;
             for(let i = 0; i < xCoords.length; i++) {
-                console.log(xCoords[i]);
+                // console.log(xCoords[i]);
               
                 distance = int(dist(xCoords[i], yCoords[i], 
                 xCoords[i+1], yCoords[i+1]));
 
                 console.log("distance:", distance);
               
-                if(distance > 300){
-                    // fill(colorSet1[3]);                    // width = 10;
+                if(distance > 200){
+                    // fill("orange");                    // width = 10;
                     rect(x, y, width, height);
                     // return;
                 }
+                else{
+                    // rect(x + 200, y, width - 100, height - 100);
+                    // noFill();
+                    // noStroke();
+                    console.log("FAILED", xCoords[i]);
+                }
 
                 numOfLoops++;
-                console.log(numOfLoops);
+                // console.log(numOfLoops);
             }
         }
 
@@ -54,7 +70,7 @@
         // repopulates new x and y positions for shapes.
 
         // array of all rectangle positions
-        function randomRect1() {
+        function randomRect() {
             // create bounds             
             let x = random(50, 600);
             let y = random(100, 600);
@@ -65,24 +81,17 @@
             xCoords.push(x);
             yCoords.push(y);
 
-
-            // let distanceX = 300;
-            // let distanceY = 300;
-
-            // rect(x, y, width, height);
-
             if(counter === 0){
-                // fill("green");
                 rect(x, y, width, height);
                 counter += 1;
             }
             else{
-                compare(x, y, width, height);
+                compareRect(x, y, width, height);
                 // console.log(counter);
                 // rect((x + distance), (y + distance), width, height);
             }
-            console.log("x coordinates array", xCoords);
-            console.log("y coordinates array", yCoords);
+            // console.log("x coordinates array", xCoords);
+            // console.log("y coordinates array", yCoords);
         }
 
         // function randomRect2() {
@@ -106,26 +115,29 @@
             let y = random(300, 700);
             let size = random(50, 300);
             ellipse(x, y, size);
+
+            xCoords.push(x);
+            yCoords.push(y);
+
+
         }
 
         function draw() {
 
-            for( let i = 0;  i < 5; i++){
-                fill(colorSet1[int(random(0, colorSet1.length))]);
-                randomRect1();
-            }
+ 
 
             // fill(colorSet1[0]);
-            // randomRect1(); 
+            // randomRect(); 
             
             // for( let i = 0;  i < 3; i++){
             //     fill(colorSet1[2]);
-            //     randomRect1(); 
+            //     randomRect(); 
             // }
 
+
             // for( let i = 0;  i < 3; i++){
-            //     fill(colorSet1[int(random(0, colorSet1.length))]);
-            //     randomCircle();
+                // fill(colorSet1[int(random(0, colorSet1.length))]);
+                // randomCircle();
             // }
 
 
@@ -133,9 +145,108 @@
             // closer than a certain distance they can go. 
             // distance variable that add or subtract the 
             // distance from the x and y of 
+            // noLoop();
             
-            noLoop();
         }
+
+
+        // function colors(){
+        //    if(value === 0){
+        //         fill(colorSet1[int(random(0, colorSet1.length))]);
+        //     }
+        //     else if(value === 1){
+        //         fill(colorSet2[int(random(0, colorSet2.length))]);
+        //     }
+        //     else if(value === 2){
+        //         fill(colorSet3[int(random(0, colorSet3.length))]);
+        //     }
+        // }
+
+        function color1() {
+            fill(colorSet1[int(random(0, colorSet1.length))]);
+        }
+
+        function color2() {
+            fill(colorSet2[int(random(0, colorSet2.length))]);
+        }
+
+        function color3() {
+            fill(colorSet3[int(random(0, colorSet3.length))]);
+        }
+
+        
+
+        function keyPressed() {
+
+            if(keyCode === RIGHT_ARROW) {  
+
+                if(value === 0){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+
+                        color1();
+                        randomCircle();
+                                                
+                        color1();
+                        randomRect();
+                    }
+                    value +=1;
+                }
+
+                else if(value === 1){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        randomRect();
+                    }
+                    value +=1;
+                }
+
+                else if(value === 2){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        randomRect();
+                    }
+                    value = 0;
+                }                
+            }
+
+            else if(keyCode === LEFT_ARROW) {   
+                if(value === 0){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet1[int(random(0, colorSet1.length))]);
+                        randomRect();
+                    }
+                    value = 2;
+                }
+
+                else if(value === 1){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        randomRect();
+                    }
+                    value -=1;
+                }
+
+                else if(value === 2){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        randomRect();
+                    }
+                    value -= 1;
+                }       
+            }
+
+
+            if(keyCode == ENTER){
+                save("My Mosaic.jpg");
+            }   
+        }
+       
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
