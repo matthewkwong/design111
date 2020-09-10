@@ -23,9 +23,8 @@
 
         function setup() {
             createCanvas(1200, 900);
-            // noStroke();
             stroke("white");
-            background("black");
+            strokeWeight(5);
         }
 
 
@@ -48,15 +47,12 @@
 
                 console.log("distance:", distance);
               
-                if(distance > 200){
-                    // fill("orange");                    // width = 10;
+                if(distance > 300){
                     rect(x, y, width, height);
-                    // return;
                 }
+
                 else{
-                    // rect(x + 200, y, width - 100, height - 100);
-                    // noFill();
-                    // noStroke();
+                    // fill("orange");
                     console.log("FAILED", xCoords[i]);
                 }
 
@@ -72,8 +68,8 @@
         // array of all rectangle positions
         function randomRect() {
             // create bounds             
-            let x = random(50, 600);
-            let y = random(100, 600);
+            let x = random(50, 500);
+            let y = random(100, 300);
 
             let width = random(100, 500);
             let height = random(100, 500);
@@ -118,49 +114,12 @@
 
             xCoords.push(x);
             yCoords.push(y);
-
-
         }
 
         function draw() {
-
- 
-
-            // fill(colorSet1[0]);
-            // randomRect(); 
-            
-            // for( let i = 0;  i < 3; i++){
-            //     fill(colorSet1[2]);
-            //     randomRect(); 
-            // }
-
-
-            // for( let i = 0;  i < 3; i++){
-                // fill(colorSet1[int(random(0, colorSet1.length))]);
-                // randomCircle();
-            // }
-
-
-            // use random and have a range so they cant get
-            // closer than a certain distance they can go. 
-            // distance variable that add or subtract the 
-            // distance from the x and y of 
-            // noLoop();
             
         }
 
-
-        // function colors(){
-        //    if(value === 0){
-        //         fill(colorSet1[int(random(0, colorSet1.length))]);
-        //     }
-        //     else if(value === 1){
-        //         fill(colorSet2[int(random(0, colorSet2.length))]);
-        //     }
-        //     else if(value === 2){
-        //         fill(colorSet3[int(random(0, colorSet3.length))]);
-        //     }
-        // }
 
         function color1() {
             fill(colorSet1[int(random(0, colorSet1.length))]);
@@ -183,7 +142,6 @@
                 if(value === 0){
                     clear();
                     for( let i = 0;  i < 5; i++){
-
                         color1();
                         randomCircle();
                                                 
@@ -196,7 +154,10 @@
                 else if(value === 1){
                     clear();
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        color2();
+                        randomCircle();
+                                                
+                        color2();
                         randomRect();
                     }
                     value +=1;
@@ -205,7 +166,10 @@
                 else if(value === 2){
                     clear();
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        color3();
+                        randomCircle();
+                                                
+                        color3();
                         randomRect();
                     }
                     value = 0;
@@ -216,7 +180,10 @@
                 if(value === 0){
                     clear();
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet1[int(random(0, colorSet1.length))]);
+                        color1();
+                        randomCircle();
+                                                
+                        color1();
                         randomRect();
                     }
                     value = 2;
@@ -225,7 +192,10 @@
                 else if(value === 1){
                     clear();
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        color2();
+                        randomCircle();
+                                                
+                        color2();
                         randomRect();
                     }
                     value -=1;
@@ -234,7 +204,10 @@
                 else if(value === 2){
                     clear();
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        color3();
+                        randomCircle();
+                                                
+                        color3();
                         randomRect();
                     }
                     value -= 1;
