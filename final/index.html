@@ -30,7 +30,6 @@
 
         let counter = 0;
 
-
         var xCoords = [];
         var yCoords = [];
 
@@ -45,25 +44,20 @@
                 distance = int(dist(xCoords[i], yCoords[i], 
                 xCoords[i+1], yCoords[i+1]));
 
-                console.log("distance:", distance);
+                // console.log("distance:", distance);
               
                 if(distance > 300){
                     rect(x, y, width, height);
                 }
 
-                else{
-                    // fill("orange");
-                    console.log("FAILED", xCoords[i]);
-                }
+                // else{
+                //     console.log("FAILED", xCoords[i]);
+                // }
 
-                numOfLoops++;
+                // numOfLoops++;
                 // console.log(numOfLoops);
             }
         }
-
-        // create array of values for x and y of shapes
-        // through array make function that looops through array and
-        // repopulates new x and y positions for shapes.
 
         // array of all rectangle positions
         function randomRect() {
@@ -90,21 +84,6 @@
             // console.log("y coordinates array", yCoords);
         }
 
-        // function randomRect2() {
-        //     let x = random(50, 700);
-        //     let y = random(50, 00);
-        //     let width = random(400, 700);
-        //     let height = random(100, 300);
-        //     rect(x, y, width, height);
-        // }
-
-        // function randomRect3() {
-        //     let x = random(50, 700);
-        //     let y = random(50, 500);
-        //     let width = random(100, 500);
-        //     let height = random(100, 400);
-        //     rect(x, y, width, height);
-        // }
         
         function randomCircle() {
             let x = random(300, 700);
@@ -133,14 +112,53 @@
             fill(colorSet3[int(random(0, colorSet3.length))]);
         }
 
+        var allColors = [colorSet1, colorSet2, colorSet3];
         
 
         function keyPressed() {
+            // User presses r
+            if(keyCode === 82){
+
+                if(value === 0){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet1[int(random(0, colorSet1.length))]);
+                        randomCircle();
+                      
+                        fill(colorSet1[int(random(0, colorSet1.length))]);
+                        randomRect();
+                    }
+                }
+
+                else if(value === 1){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        randomCircle();
+                                                
+                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        randomRect();
+                    }
+                }
+
+                else if(value === 2){
+                    clear();
+                    for( let i = 0;  i < 5; i++){
+                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        randomCircle();
+                                                
+                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        randomRect();
+                    }
+                }
+                redraw();
+            }
 
             if(keyCode === RIGHT_ARROW) {  
 
                 if(value === 0){
                     clear();
+                    
                     for( let i = 0;  i < 5; i++){
                         color1();
                         randomCircle();
@@ -149,6 +167,7 @@
                         randomRect();
                     }
                     value +=1;
+                    console.log(value);
                 }
 
                 else if(value === 1){
@@ -161,6 +180,7 @@
                         randomRect();
                     }
                     value +=1;
+                    console.log(value);
                 }
 
                 else if(value === 2){
