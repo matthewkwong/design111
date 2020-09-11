@@ -24,11 +24,10 @@
         function setup() {
             createCanvas(1200, 900);
             stroke("white");
+            background("white");
             strokeWeight(5);
         }
 
-
-        let counter = 0;
 
         var xCoords = [];
         var yCoords = [];
@@ -36,8 +35,7 @@
         let distance = 0;
 
         function compareRect(x, y, width, height){
-            // rectMode(CENTER);
-        let numOfLoops = 0;
+            let numOfLoops = 0;
             for(let i = 0; i < xCoords.length; i++) {
                 // console.log(xCoords[i]);
               
@@ -59,11 +57,33 @@
             }
         }
 
+        function compareCircle(x, y, size){           
+            let numOfLoops = 0;
+            for(let i = 0; i < xCoords.length; i++) {
+                // console.log(xCoords[i]);
+              
+                distance = int(dist(xCoords[i], yCoords[i], 
+                xCoords[i+1], yCoords[i+1]));
+                // console.log("distance:", distance);
+                
+                if(distance > 300){
+                    ellipse(x, y, size);
+                }
+                // else{
+                //     console.log("FAILED", xCoords[i]);
+                // }
+
+                // numOfLoops++;
+                // console.log(numOfLoops);
+            }
+        }
+
         // array of all rectangle positions
+        let rectCounter = 0;
         function randomRect() {
             // create bounds             
-            let x = random(50, 500);
-            let y = random(100, 300);
+            let x = random(150, 700);
+            let y = random(200, 300);
 
             let width = random(100, 500);
             let height = random(100, 500);
@@ -71,9 +91,9 @@
             xCoords.push(x);
             yCoords.push(y);
 
-            if(counter === 0){
+            if(rectCounter === 0){
                 rect(x, y, width, height);
-                counter += 1;
+                rectCounter += 1;
             }
             else{
                 compareRect(x, y, width, height);
@@ -84,19 +104,39 @@
             // console.log("y coordinates array", yCoords);
         }
 
-        
+        let circleCounter = 0;
+
         function randomCircle() {
-            let x = random(300, 700);
+            let x = random(300, 800);
             let y = random(300, 700);
-            let size = random(50, 300);
-            ellipse(x, y, size);
+            let size = random(100, 400);
+            // ellipse(x, y, size);
 
             xCoords.push(x);
             yCoords.push(y);
+
+            if(circleCounter === 0){
+                ellipse(x, y, size);
+                circleCounter += 1;
+            }
+            else{
+                compareCircle(x, y, size);
+             }
         }
 
         function draw() {
-            
+            if(value === 0){
+                clear();
+                for( let i = 0;  i < 5; i++){
+                    color1(); 
+                    randomCircle();
+                    
+                    color1();
+                    randomRect();
+                }
+                value += 1;
+            }
+            frameRate(0);
         }
 
 
@@ -111,43 +151,56 @@
         function color3() {
             fill(colorSet3[int(random(0, colorSet3.length))]);
         }
-
-        var allColors = [colorSet1, colorSet2, colorSet3];
         
 
-        function keyPressed() {
-            // User presses r
-            if(keyCode === 82){
+        function addBackground() { 
+            fill("white");
+            rect(0, 0, 1200, 900);
+        }
 
-                if(value === 0){
+        function keyPressed() {
+            // User presses spacebar, redraw in same color
+            if(keyCode === 32){     
+
+                console.log(value);       
+                if(value === 1){
                     clear();
+
+                    addBackground();
+                    
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet1[int(random(0, colorSet1.length))]);
+                        color1(); 
                         randomCircle();
                       
-                        fill(colorSet1[int(random(0, colorSet1.length))]);
-                        randomRect();
-                    }
-                }
-
-                else if(value === 1){
-                    clear();
-                    for( let i = 0;  i < 5; i++){
-                        fill(colorSet2[int(random(0, colorSet2.length))]);
-                        randomCircle();
-                                                
-                        fill(colorSet2[int(random(0, colorSet2.length))]);
+                        color1();
                         randomRect();
                     }
                 }
 
                 else if(value === 2){
                     clear();
+
+                    addBackground();
+
                     for( let i = 0;  i < 5; i++){
-                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        color2(); 
                         randomCircle();
                                                 
-                        fill(colorSet3[int(random(0, colorSet3.length))]);
+                        color2(); 
+                        randomRect();
+                    }
+                }
+
+                else if(value === 3){
+                    clear();
+
+                    addBackground();
+
+                    for( let i = 0;  i < 5; i++){
+                        color3(); 
+                        randomCircle();
+                                                
+                        color3(); 
                         randomRect();
                     }
                 }
@@ -155,62 +208,28 @@
             }
 
             if(keyCode === RIGHT_ARROW) {  
+                value +=1;
 
-                if(value === 0){
+                if(value === 1){
                     clear();
                     
-                    for( let i = 0;  i < 5; i++){
-                        color1();
-                        randomCircle();
-                                                
-                        color1();
-                        randomRect();
-                    }
-                    value +=1;
-                    console.log(value);
-                }
+                    addBackground();
 
-                else if(value === 1){
-                    clear();
                     for( let i = 0;  i < 5; i++){
-                        color2();
+                        color1();
                         randomCircle();
                                                 
-                        color2();
+                        color1();
                         randomRect();
                     }
-                    value +=1;
                     console.log(value);
                 }
 
                 else if(value === 2){
                     clear();
-                    for( let i = 0;  i < 5; i++){
-                        color3();
-                        randomCircle();
-                                                
-                        color3();
-                        randomRect();
-                    }
-                    value = 0;
-                }                
-            }
 
-            else if(keyCode === LEFT_ARROW) {   
-                if(value === 0){
-                    clear();
-                    for( let i = 0;  i < 5; i++){
-                        color1();
-                        randomCircle();
-                                                
-                        color1();
-                        randomRect();
-                    }
-                    value = 2;
-                }
+                    addBackground();
 
-                else if(value === 1){
-                    clear();
                     for( let i = 0;  i < 5; i++){
                         color2();
                         randomCircle();
@@ -218,11 +237,14 @@
                         color2();
                         randomRect();
                     }
-                    value -=1;
+                    console.log(value);
                 }
 
-                else if(value === 2){
+                else if(value === 3){
                     clear();
+
+                    addBackground();
+
                     for( let i = 0;  i < 5; i++){
                         color3();
                         randomCircle();
@@ -230,8 +252,25 @@
                         color3();
                         randomRect();
                     }
-                    value -= 1;
+                    console.log(value);
                 }       
+
+                else{
+                    value = 0;
+                    clear();
+
+                    addBackground();
+
+                    for( let i = 0;  i < 5; i++){
+                        color1();
+                        randomCircle();
+                                                
+                        color1();
+                        randomRect();
+                    }
+                    console.log(value);
+                    value +=1;
+                }
             }
 
 
