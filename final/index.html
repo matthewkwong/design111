@@ -29,22 +29,21 @@
         }
 
 
-        var xCoords = [];
-        var yCoords = [];
-
-        let distance = 0;
+        let rectDistance = 0;
+        let rectXcoords = [];
+        let rectYcoords = [];
 
         function compareRect(x, y, width, height){
             let numOfLoops = 0;
-            for(let i = 0; i < xCoords.length; i++) {
+            for(let i = 0; i < rectXcoords.length; i++) {
                 // console.log(xCoords[i]);
               
-                distance = int(dist(xCoords[i], yCoords[i], 
-                xCoords[i+1], yCoords[i+1]));
+                rectDistance = int(dist(rectXcoords[i], rectYcoords[i], 
+                rectXcoords[i+1], rectYcoords[i+1]));
 
                 // console.log("distance:", distance);
               
-                if(distance > 300){
+                if(rectDistance > 300){
                     rect(x, y, width, height);
                 }
 
@@ -57,16 +56,20 @@
             }
         }
 
+        let ellipseDistance = 0;
+        let ellipseXcoords = [];
+        let ellipseYcoords = [];
+ 
         function compareCircle(x, y, size){           
             let numOfLoops = 0;
-            for(let i = 0; i < xCoords.length; i++) {
+            for(let i = 0; i < ellipseYcoords.length; i++) {
                 // console.log(xCoords[i]);
               
-                distance = int(dist(xCoords[i], yCoords[i], 
-                xCoords[i+1], yCoords[i+1]));
+                ellipseDistance = int(dist(ellipseXcoords[i], ellipseYcoords[i], 
+                ellipseXcoords[i+1], ellipseYcoords[i+1]));
                 // console.log("distance:", distance);
                 
-                if(distance > 300){
+                if(ellipseDistance > 300){
                     ellipse(x, y, size);
                 }
                 // else{
@@ -88,8 +91,8 @@
             let width = random(100, 500);
             let height = random(100, 500);
             
-            xCoords.push(x);
-            yCoords.push(y);
+            rectXcoords.push(x);
+            rectYcoords.push(y);
 
             if(rectCounter === 0){
                 rect(x, y, width, height);
@@ -112,8 +115,8 @@
             let size = random(100, 400);
             // ellipse(x, y, size);
 
-            xCoords.push(x);
-            yCoords.push(y);
+            ellipseXcoords.push(x);
+            ellipseYcoords.push(y);
 
             if(circleCounter === 0){
                 ellipse(x, y, size);
